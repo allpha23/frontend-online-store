@@ -32,3 +32,15 @@
 a {
   text-decoration: none;
 }
+
+.navbar {
+  border: 1px solid black;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.navbar-search, button {
+  margin-left: 10px;
+}

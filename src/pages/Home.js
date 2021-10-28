@@ -94,56 +94,59 @@ class Home extends React.Component {
     return (
       <div>
         <h1>Home</h1>
-        <div>
-          <Link
-            className="shopping-cart-icon"
-            to={ { pathname: '/shoppingcart', state: { cartProducts } } }
-            data-testid="shopping-cart-button"
-          >
-            <FontAwesomeIcon icon={ faShoppingCart } />
-            <span
-              className="cart-quantity"
-              data-testid="shopping-cart-size"
+
+        <section className="navbar">
+          <div className="navbar-select">
+            <FilterBar
+              category={ category }
+              handleChange={ this.handleChange }
+              getProductsFromApi={ this.getProductsFromApi }
+            />
+          </div>
+          <div className="navbar-search">
+            <form
+              onChange={ this.handleChange }
+              onSubmit={ this.handleSubmit }
             >
-              {this.handleCartQuantity()}
+              <input
+                data-testid="query-input"
+                type="text"
+                name="query"
+                id="query-input"
+                placeholder="Search"
+              />
+              <button
+                data-testid="query-button"
+                type="submit"
+              >
+                busca
+              </button>
+            </form>
+          </div>
+          <div className="navbar-cart">
+            <Link
+              className="shopping-cart-icon"
+              to={ { pathname: '/shoppingcart', state: { cartProducts } } }
+              data-testid="shopping-cart-button"
+            >
+              <FontAwesomeIcon icon={ faShoppingCart } />
+              <span
+                className="cart-quantity"
+                data-testid="shopping-cart-size"
+              >
+                {this.handleCartQuantity()}
 
-            </span>
+              </span>
 
-          </Link>
-        </div>
-
-        <form
-          onChange={ this.handleChange }
-          onSubmit={ this.handleSubmit }
-        >
-          <input
-            data-testid="query-input"
-            type="text"
-            name="query"
-            id="query-input"
-            placeholder="Search"
-          />
-          <button
-            data-testid="query-button"
-            type="submit"
-          >
-            busca
-          </button>
-        </form>
+            </Link>
+          </div>
+        </section>
         <div />
-
         <p
           data-testid="home-initial-message"
         >
           Digite algum termo de pesquisa ou escolha uma categoria.
         </p>
-        <div>
-          <FilterBar
-            category={ category }
-            handleChange={ this.handleChange }
-            getProductsFromApi={ this.getProductsFromApi }
-          />
-        </div>
         { products.length > 0 && this.renderProductList() }
       </div>
     );
