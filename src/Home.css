@@ -34,11 +34,11 @@ a {
 }
 
 .navbar {
+  border: 1px solid black;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
   padding: 10px;
-  border: 1px solid black;
 }
 
 .navbar-search, button {
