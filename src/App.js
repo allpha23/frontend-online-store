@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import ShoppingCart from './pages/ShoppingCart';
 import ProductDetails from './pages/ProductDetails';
 import ConfirmOrder from './pages/ConfirmOrder';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           render={ (props) => <ProductDetails { ...props } /> }
         />
         <Route path="/confirmorder" component={ ConfirmOrder } />
+        <Route path="*" component={ NotFound } />
       </Switch>
     </BrowserRouter>
   );
